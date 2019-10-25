@@ -1,4 +1,4 @@
-import Student from './model.mjs';
+import Student from '../project/model.mjs';
 import mongo from '../../mongo/MongoManager.mjs';
 
 class studentDAO {

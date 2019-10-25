@@ -1,11 +1,13 @@
 import studentDAO from '../../models/student/dao.mjs';
+import projectDAO from '../../models/project/dao.mjs';
 
 const create = async (req, res) => {
     try {
         if (!req.body) {
             res.sendStatus(400);
         } else {
-
+            const project = await projectDAO.create(req.body.project)
+            req.body.projects.push(project._id)
             const student = await studentDAO.create(req.body);
             res.send(student);
         }
