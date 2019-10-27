@@ -1,4 +1,5 @@
-import Student from '../project/model.mjs';
+//import mongoose from 'mongoose';
+import Student from './model.mjs';
 import mongo from '../../mongo/MongoManager.mjs';
 
 class studentDAO {
@@ -9,20 +10,26 @@ class studentDAO {
 
 
 create(data){
-   
-    const student = new Student();
-    Object.assign(student, data);
-
-    return student.save();
+//    data._id = new mongoose.Types.ObjectId(); 
+    console.log(data);
+    const student = new Student(data);
+ 
+   // Object.assign(student, data);
+    console.log(student);    
+    return student.save()
 }
 
 list(){
-    return Student.find().exec();
+    return Student.find()
+    .populate('projects')
+    .lean();
 }
 
 listOne(id){
     
-    return Student.findById(id).exec();
+    return Student.findById(id)
+    .populate('projects')
+    .exec();
 }
 update(id,data){
     return Student.findByIdAndUpdate(id,data,{new:true, useFindAndModify:false}).exec();

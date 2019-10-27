@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import StudentSchema from '../project/schema.mjs';
+import StudentSchema from './schema.mjs';
 
-export default  mongoose.model("Student", StudentSchema);
+export default mongoose.model("Students", StudentSchema);
 //export const  Project = mongoose.model("Project", ProjectSchema);

@@ -4,8 +4,9 @@ const list = async (req, res) => {
 
     try {
 
+        console.time('list')
         const students = await studentDAO.list();
-
+        console.timeEnd('list');
         //Ejercicio 22: Contar alumnos o proyectos; 
         //si el parámetro count es true envía núm de estudiantes sino el array de estudiantes.      
         if (req.query['count'] == 'true') {
