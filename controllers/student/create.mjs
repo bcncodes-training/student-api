@@ -1,11 +1,11 @@
 import studentDAO from '../../models/student/dao.mjs';
 import projectDAO from '../../models/project/dao.mjs';
-
-const create = async (req, res) => {
+import HTTPerror from 'http-errors';
+const create = async (req, res, next) => {
     try {
-        if (!req.body) {
-
-            res.sendStatus(400);
+        if (!req.body.projects) {
+            
+            next(HTTPerror(400,{message:'projects not found'}));
         } else {
 
             const arrId = [];
@@ -16,7 +16,7 @@ const create = async (req, res) => {
                     arrId.push({"_id":(await projectDAO.create(element))._id});
 
                 } catch (error) {
-                    throw error;
+                    next(error);
                 }
             
             }));
@@ -29,8 +29,7 @@ const create = async (req, res) => {
             
         }
     } catch (error) {
-        res.send('ha habido un error');
-        throw error;
+        next(error);
     }
 }
 

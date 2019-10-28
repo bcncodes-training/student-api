@@ -1,12 +1,12 @@
 import studentDAO from '../../models/student/dao.mjs';
-
-const remove = async (req,res) =>{
+import HTTPerror from 'http-errors';
+const remove = async (req,res, next) =>{
 
     try{
 
             console.log(req.params.id)
             if (!req.params.id) {
-                res.sendStatus(400);
+                next(HTTPerror(404));
             } else {    
 
         const student = await studentDAO.remove(req.params.id);
@@ -15,7 +15,7 @@ const remove = async (req,res) =>{
             }
     } catch (error){
         
-        throw error;
+        next(error);
     }
 }
 

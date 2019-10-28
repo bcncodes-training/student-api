@@ -1,6 +1,6 @@
 import studentDAO from '../../models/student/dao.mjs';
 
-const list = async (req, res) => {
+const list = async (req, res,next) => {
 
     try {
 
@@ -31,7 +31,7 @@ const list = async (req, res) => {
         
         } catch (error) {
 
-            throw error;
+            next(error);
         }
     }
 
