@@ -5,13 +5,13 @@ import remove from './remove.mjs';
 import list from './list.mjs';
 import listOne from './listOne.mjs';
 import removeProjects from './removeProjects.mjs';
-
+import basicAuth from '../../middleware/basic_auth.mjs'
 
 const router = Router();
 
 router.route('/')
     .post(create)
-    .get(list);
+    .get(basicAuth, list);
 
 router.route('/:id')
     .get(listOne)

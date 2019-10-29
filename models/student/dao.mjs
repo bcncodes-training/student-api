@@ -11,7 +11,7 @@ class studentDAO {
 
 create(data){
 //    data._id = new mongoose.Types.ObjectId(); 
-    console.log(data);
+    console.log('create: ',data);
     const student = new Student(data);
  
    // Object.assign(student, data);
@@ -25,6 +25,12 @@ list(){
     .lean();
 }
 
+checkUser(data){
+    
+    return Student.findOne(data)
+     .populate('projects')
+    .exec(); 
+}
 listOne(id){
     
     return Student.findById(id)

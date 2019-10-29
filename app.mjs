@@ -14,5 +14,4 @@ app.use(errorHandler.logError);
 app.use(errorHandler.clientErrorHandler);
 app.use(errorHandler.errorHandler);
 
-//app.post('/',(q,r)=>res.send('hola post'));
-app.listen(3000,_=>console.log('listen on 3000'));
+export default app;

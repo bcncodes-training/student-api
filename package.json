@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules app.mjs"
+    "start": "node --experimental-modules server.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "basic-auth": "^2.0.1",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "mongoose": "^5.7.7",

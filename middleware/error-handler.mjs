@@ -5,14 +5,14 @@ export default {
 
     logError(err,req,res,next) {
         req.error = err;
-        console.log(err.message);
+        console.log(err);
    next(err);
     },
 
     clientErrorHandler(err,req,res,next){
         
         if(err instanceof HTTPErrors.HttpError)
-            res.status(err.statusCode).send (err.message||HTTPStatuses[err.statusCode]);
+            res.status(err.statusCode).send (err.message);
         
         next(err);
         
@@ -23,7 +23,7 @@ export default {
             return next(err);
           }
 
-          res.status(500).send('se ha producido un error: ',error.type);
+          res.status(500).send('se ha producido un error: ',err.type);
       }
 }    
 
