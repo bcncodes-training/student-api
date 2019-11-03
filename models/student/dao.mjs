@@ -10,12 +10,8 @@ class studentDAO {
 
 
 create(data){
-//    data._id = new mongoose.Types.ObjectId(); 
-    console.log('create: ',data);
+
     const student = new Student(data);
- 
-   // Object.assign(student, data);
-    console.log(student);    
     return student.save()
 }
 

@@ -1,5 +1,9 @@
 import express from 'express';
-import controller from './controllers/student/index.mjs';
+
+import {authJwt} from './middleware/auth.mjs'
+
+import ctrlStudent from './controllers/student/index.mjs';
+import ctrlUser from './controllers/user/index.mjs';
 import errorHandler from './middleware/error-handler.mjs';
 
 const app = express();
@@ -7,8 +11,9 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-app.use('/student',controller);
 
+app.use('/user', ctrlUser);
+app.use('/student',authJwt,ctrlStudent);
 
 app.use(errorHandler.logError);
 app.use(errorHandler.clientErrorHandler);
