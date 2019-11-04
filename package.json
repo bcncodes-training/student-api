@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node --inspect --experimental-modules server.mjs",
-    "start": "node --experimental-modules server.mjs"
+    "start-dev": "node -r dotenv/config --experimental-modules server.mjs",
+    "start": "node  --experimental-modules server.mjs"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "statuses": "^1.5.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "morgan": "^1.9.1"
   }
 }
