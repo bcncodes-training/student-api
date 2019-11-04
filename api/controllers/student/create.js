@@ -11,9 +11,9 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _dao = _interopRequireDefault(require("../../models/student/dao.js"));
+var _dao = _interopRequireDefault(require("../../models/student/dao.js.js"));
 
-var _dao2 = _interopRequireDefault(require("../../models/project/dao.js"));
+var _dao2 = _interopRequireDefault(require("../../models/project/dao.js.js"));
 
 var _httpErrors = _interopRequireDefault(require("http-errors"));
 

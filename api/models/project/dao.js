@@ -7,31 +7,27 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _model = _interopRequireDefault(require("./model.js"));
+var _model = _interopRequireDefault(require("./model.js.js"));
 
-var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js"));
+var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js.js"));
 
-//import mongoose from 'mongoose';
-var userDAO =
+var projectDAO =
 /*#__PURE__*/
 function () {
-  function userDAO() {
+  function projectDAO() {
     _MongoManager["default"].connect();
   }
 
-  var _proto = userDAO.prototype;
+  var _proto = projectDAO.prototype;
 
   _proto.create = function create(data) {
-    var user = new _model["default"](data);
-    return user.save();
+    var project = new _model["default"]();
+    Object.assign(project, data);
+    return project.save();
   };
 
   _proto.list = function list() {
-    return _model["default"].find().lean();
-  };
-
-  _proto.checkUser = function checkUser(data) {
-    return _model["default"].findOne(data).exec();
+    return _model["default"].find().exec();
   };
 
   _proto.listOne = function listOne(id) {
@@ -51,9 +47,9 @@ function () {
     }).exec();
   };
 
-  return userDAO;
+  return projectDAO;
 }();
 
-var _default = new userDAO();
+var _default = new projectDAO();
 
 exports["default"] = _default;

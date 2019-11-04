@@ -7,31 +7,35 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _model = _interopRequireDefault(require("./model.js"));
+var _model = _interopRequireDefault(require("./model.js.js"));
 
-var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js"));
+var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js.js"));
 
-var projectDAO =
+//import mongoose from 'mongoose';
+var studentDAO =
 /*#__PURE__*/
 function () {
-  function projectDAO() {
+  function studentDAO() {
     _MongoManager["default"].connect();
   }
 
-  var _proto = projectDAO.prototype;
+  var _proto = studentDAO.prototype;
 
   _proto.create = function create(data) {
-    var project = new _model["default"]();
-    Object.assign(project, data);
-    return project.save();
+    var student = new _model["default"](data);
+    return student.save();
   };
 
   _proto.list = function list() {
-    return _model["default"].find().exec();
+    return _model["default"].find().populate('projects').lean();
+  };
+
+  _proto.checkUser = function checkUser(data) {
+    return _model["default"].findOne(data).populate('projects').exec();
   };
 
   _proto.listOne = function listOne(id) {
-    return _model["default"].findById(id).exec();
+    return _model["default"].findById(id).populate('projects').exec();
   };
 
   _proto.update = function update(id, data) {
@@ -47,9 +51,9 @@ function () {
     }).exec();
   };
 
-  return projectDAO;
+  return studentDAO;
 }();
 
-var _default = new projectDAO();
+var _default = new studentDAO();
 
 exports["default"] = _default;

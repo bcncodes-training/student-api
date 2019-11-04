@@ -9,8 +9,9 @@ exports["default"] = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _schema = _interopRequireDefault(require("./schema.js"));
+var _schema = _interopRequireDefault(require("./schema.js.js"));
 
-var _default = _mongoose["default"].model("Project", _schema["default"]);
+var _default = _mongoose["default"].model("Students", _schema["default"]); //export const  Project = mongoose.model("Project", ProjectSchema);
+
 
 exports["default"] = _default;

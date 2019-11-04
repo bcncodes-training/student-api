@@ -11,49 +11,64 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _auth = require("../../middleware/auth.js");
+var _dao = _interopRequireDefault(require("../../models/student/dao.js.js"));
 
-var login =
+var _httpErrors = _interopRequireDefault(require("http-errors"));
+
+var removeProjects =
 /*#__PURE__*/
 function () {
   var _ref = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
   _regenerator["default"].mark(function _callee(req, res, next) {
-    var token;
+    var student;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
-            return (0, _auth.generateAccessToken)(req.user);
+            console.log(req.params.id);
 
-          case 3:
-            token = _context.sent;
-            res.json({
-              user: req.user,
-              token: token
-            });
+            if (req.params.id) {
+              _context.next = 6;
+              break;
+            }
+
+            next((0, _httpErrors["default"])(404));
             _context.next = 10;
             break;
 
-          case 7:
-            _context.prev = 7;
+          case 6:
+            _context.next = 8;
+            return _dao["default"].update(req.params.id, {
+              projects: []
+            });
+
+          case 8:
+            student = _context.sent;
+            res.json(student);
+
+          case 10:
+            _context.next = 15;
+            break;
+
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context["catch"](0);
             next(_context.t0);
 
-          case 10:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 12]]);
   }));
 
-  return function login(_x, _x2, _x3) {
+  return function removeProjects(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();
 
-var _default = login;
+var _default = removeProjects;
 exports["default"] = _default;

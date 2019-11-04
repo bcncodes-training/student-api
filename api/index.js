@@ -4,7 +4,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _https = _interopRequireDefault(require("https"));
 
-var _app = _interopRequireDefault(require("./app.js"));
+var _app = _interopRequireDefault(require("./app.js.js"));
 
 var _fs = _interopRequireDefault(require("fs"));
 

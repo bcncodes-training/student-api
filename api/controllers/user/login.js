@@ -11,36 +11,36 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _dao = _interopRequireDefault(require("../../models/student/dao.js"));
+var _auth = require("../../middleware/auth.js.js");
 
-var _httpErrors = _interopRequireDefault(require("http-errors"));
-
-var listOne =
+var login =
 /*#__PURE__*/
 function () {
   var _ref = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
   _regenerator["default"].mark(function _callee(req, res, next) {
-    var student;
+    var token;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return _dao["default"].listOne(req.params.id);
+            return (0, _auth.generateAccessToken)(req.user);
 
           case 3:
-            student = _context.sent;
-            res.json(student); // }
-
+            token = _context.sent;
+            res.json({
+              user: req.user,
+              token: token
+            });
             _context.next = 10;
             break;
 
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](0);
-            next((0, _httpErrors["default"])(404));
+            next(_context.t0);
 
           case 10:
           case "end":
@@ -50,10 +50,10 @@ function () {
     }, _callee, null, [[0, 7]]);
   }));
 
-  return function listOne(_x, _x2, _x3) {
+  return function login(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();
 
-var _default = listOne;
+var _default = login;
 exports["default"] = _default;

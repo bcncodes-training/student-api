@@ -11,11 +11,11 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _dao = _interopRequireDefault(require("../../models/student/dao.js"));
+var _dao = _interopRequireDefault(require("../../models/student/dao.js.js"));
 
 var _httpErrors = _interopRequireDefault(require("http-errors"));
 
-var removeProjects =
+var remove =
 /*#__PURE__*/
 function () {
   var _ref = (0, _asyncToGenerator2["default"])(
@@ -40,9 +40,7 @@ function () {
 
           case 6:
             _context.next = 8;
-            return _dao["default"].update(req.params.id, {
-              projects: []
-            });
+            return _dao["default"].remove(req.params.id);
 
           case 8:
             student = _context.sent;
@@ -65,10 +63,10 @@ function () {
     }, _callee, null, [[0, 12]]);
   }));
 
-  return function removeProjects(_x, _x2, _x3) {
+  return function remove(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();
 
-var _default = removeProjects;
+var _default = remove;
 exports["default"] = _default;

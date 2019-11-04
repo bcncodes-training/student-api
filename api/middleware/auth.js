@@ -23,7 +23,7 @@ var _bcrypt = _interopRequireDefault(require("bcrypt"));
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
-var _dao = _interopRequireDefault(require("../models/user/dao.js"));
+var _dao = _interopRequireDefault(require("../models/user/dao.js.js"));
 
 //import config from '../config/config.js';
 var generateAccessToken = function generateAccessToken(user) {
