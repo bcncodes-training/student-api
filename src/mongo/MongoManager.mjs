@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 
 class MongoManager {
 
-    #config;
+    // _config;
     
     constructor(url_mongo){
-        this.#config = url_mongo;
+        this._config = url_mongo;
     }
     getConnectionURL(){
-        return this.#config;
+        return this._config;
     }
 
     isConnected(){
