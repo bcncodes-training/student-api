@@ -7,9 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _model = _interopRequireDefault(require("./model.js.js"));
+var _model = _interopRequireDefault(require("./model.js"));
 
-var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js.js"));
+var _MongoManager = _interopRequireDefault(require("../../mongo/MongoManager.js"));
 
 //import mongoose from 'mongoose';
 var userDAO =

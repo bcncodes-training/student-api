@@ -9,11 +9,11 @@ exports["default"] = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
-var _login = _interopRequireDefault(require("./login.js.js"));
+var _login = _interopRequireDefault(require("./login.js"));
 
-var _register = _interopRequireDefault(require("./register.js.js"));
+var _register = _interopRequireDefault(require("./register.js"));
 
-var _auth = require("../../middleware/auth.js.js");
+var _auth = require("../../middleware/auth.js");
 
 var router = (0, _express["default"])();
 router.post('/login', _auth.authLocal, _login["default"]);
