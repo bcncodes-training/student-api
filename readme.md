@@ -31,7 +31,9 @@ module.exports = {
       },
     },
   };
+  
   ```
+  
   5. Instalamos los siguientes package como dependencias de desarrollo: `npm install --save-dev`
   
     - @babel/cli,
