@@ -34,7 +34,7 @@ module.exports = {
   
   ```
   
-  5. Instalamos los siguientes package como dependencias de desarrollo: `npm install --save-dev`
+  4. Instalamos los siguientes package como dependencias de desarrollo: `npm install --save-dev`
   
     - @babel/cli,
     - @babel/core,
@@ -43,18 +43,20 @@ module.exports = {
     - @babel/runtime,
     - @babel/plugin-transform-runtime
   
-  4. Añadimos las siguientes líneas al fichero __package.json__, dentro del apartado __"scripts"__:
-    ```json
+  5. Añadimos las siguientes líneas al fichero __package.json__, dentro del apartado __"scripts"__:
+   
+   ```json
     "build": "npm run build:mjs",
     "build:js": "babel src",
     "build:mjs": "npm run build:js -- --env-name mjs --out-dir api",
-   ```
   
-  5. Lanzamos la compilación desde el terminal con: `npm run build`
+  ```
   
-  6. Sobre el directorio generado (__`api`__) buscamos y sustituimos las extensiones `.mjs` por `.js`
+  6. Lanzamos la compilación desde el terminal con: `npm run build`
   
-  7. Comprobamos que todo funciona corriendo la aplicación con el comando __`heroku local`__
+  7. Sobre el directorio generado (__`api`__) buscamos y sustituimos las extensiones `.mjs` por `.js`
+  
+  8. Comprobamos que todo funciona corriendo la aplicación con el comando __`heroku local`__
   
    
 
