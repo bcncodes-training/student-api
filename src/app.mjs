@@ -6,6 +6,7 @@ import ctrlStudent from './controllers/student/index.mjs';
 import ctrlUser from './controllers/user/index.mjs';
 import errorHandler from './middleware/error-handler.mjs';
 
+
 const app = express();
 
 app.use(express.urlencoded({extended:true}));

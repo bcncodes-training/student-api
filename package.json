@@ -2,9 +2,9 @@
   "name": "student-API",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server",
   "scripts": {
-
+    "start-dev": "node -r dotenv/config --experimental-modules src/server.mjs",
     "start": "node  api/server.js"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0",
     "statuses": "^1.5.0"
   },
   "devDependencies": {
