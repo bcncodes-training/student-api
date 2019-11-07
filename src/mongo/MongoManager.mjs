@@ -1,15 +1,13 @@
 import mongoose from 'mongoose';
-import config from '../config/config.mjs';
+//import config from '../config/config.mjs';
 
 class MongoManager {
 
-    #config;
-    
     constructor(config){
-        this.#config = config;
+        this._config = config;
     }
     getConnectionURL(){
-        return this.#config.MONGODB_URI;
+        return this._config;
     }
 
     isConnected(){
@@ -27,4 +25,4 @@ class MongoManager {
 
 }
 
-export default new MongoManager(config);
+export default new MongoManager(process.env.MONGODB_URI);

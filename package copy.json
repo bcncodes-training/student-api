@@ -2,9 +2,13 @@
   "name": "student-API",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-
+    "build": "npm run build:mjs",
+    "build:js": "babel src",
+    "build:mjs": "npm run build:js -- --env-name mjs --out-dir api",
+    "test": "node --inspect --experimental-modules server.mjs",
+    "start-dev": "node -r dotenv/config --experimental-modules server.mjs",
     "start": "node  api/server.js"
   },
   "keywords": [],

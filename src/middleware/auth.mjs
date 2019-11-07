@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import userDAO from '../models/user/dao.mjs';
-import config from '../config/config.mjs';
+//import config from '../config/config.mjs';
 
 const generateAccessToken = (user) => {
 
@@ -16,7 +16,7 @@ const generateAccessToken = (user) => {
 
         id: user._id,
 
-    }, config.SECRET_TOKEN, {
+    }, process.env.SECRET_TOKEN, {
 
         expiresIn: 2592000
 
@@ -51,7 +51,7 @@ const bearerStrategy = new BearerStrategy(async (token, done) => {
 
     try {
 
-        const payload = await jwt.verify(token, config.SECRET_TOKEN)
+        const payload = await jwt.verify(token, process.env.SECRET_TOKEN)
 
         const user = await userDAO.listOne(payload.id);
 
